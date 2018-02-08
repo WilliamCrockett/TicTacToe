@@ -5,7 +5,7 @@ const store = require('../store.js')
 
 const signUp = function (data) {
   return $.ajax({
-    url: 'https://ga-wdi-boston.herokuapp.com' + '/sign-up',
+    url: 'http://tic-tac-toe.wdibos.com' + '/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
