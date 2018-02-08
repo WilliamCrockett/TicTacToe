@@ -5,7 +5,7 @@ const store = require('../store.js')
 
 const signUp = function (data) {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com' + '/sign-up',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -16,7 +16,7 @@ const signUp = function (data) {
 
 const signIn = function (data) {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com' + '/sign-in',
+    url: config.apiOrigin + '/sign-in',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -27,7 +27,7 @@ const signIn = function (data) {
 
 const changePassword = function (data) {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com' + '/change-password/' + store.user.id,
+    url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -39,7 +39,7 @@ const changePassword = function (data) {
 
 const signOut = function () {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com' + '/sign-out/' + store.user.id,
+    url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
