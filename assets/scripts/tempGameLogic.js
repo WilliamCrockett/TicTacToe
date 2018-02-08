@@ -79,5 +79,7 @@ const checkWinner = function (gameCells) {
 module.exports = {
   playerXGo,
   playerOGo,
-  checkSpace
+  checkSpace,
+  switchTurn,
+  checkWinner
 }
