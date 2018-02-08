@@ -26,3 +26,30 @@ body {
   float: right;
   height: 250px;
 }
+
+#signOut {
+  visibility: hidden;
+}
+
+#change-password-button {
+  visibility: hidden;
+}
+
+#gameboard {
+  visibility: hidden;
+}
+
+.navbar-header {
+  color: black;
+  text-decoration: bold;
+}
+
+#signUpTitle {
+  color: black;
+  text-decoration: bold;
+}
+
+#signUpBody {
+  color: black;
+  text-decoration: bold;  //TODO fix the linter errors. need to ask how
+}
