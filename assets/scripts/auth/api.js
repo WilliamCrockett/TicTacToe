@@ -5,7 +5,7 @@ const store = require('../store.js')
 
 const signUp = function (data) {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com' + '/sign-up',
+    url: config.apiOrigins.production + '/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
