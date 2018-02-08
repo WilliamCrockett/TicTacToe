@@ -1,0 +1,28 @@
+@import 'color';
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.box {
+  border: 1px solid $white;
+}
+
+.grey {
+  background-color: $grey;
+}
+
+.teal {
+  background-color: $teal;
+}
+
+.big {
+  float: left;
+  height: 750px;
+}
+
+.small {
+  float: right;
+  height: 250px;
+}

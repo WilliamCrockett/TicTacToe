@@ -12,14 +12,151 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <!--Nav bar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h1>Welcome to Tic Tac Toe</h1>
+            <!-- Button trigger modal -->
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signUpModal">
+                Sign Up
+              </button>
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInModal">
+                Sign In
+              </button>
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#changePasswordModal">
+                Change Password
+              </button>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal sign up -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" name="form[email]" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="form[password]" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Confirm Password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="form[password]" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal sign in -->
+      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" name="form[email]" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="form[password]" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Remember me
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal change password -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Old password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="form[oldPassword]" class="form-control" id="inputPassword3" placeholder="old password">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">New password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="form[newPassword]" class="form-control" id="inputPassword3" placeholder="new password">
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Change Password</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 box teal big">
+            <h3>Instructions</h3>
+            <p>Normally, both your asses would be dead as fucking fried chicken,
+              but you happen to pull this shit while I'm in a transitional period
+              so I don't wanna kill you, I wanna help you. But I can't give you
+              this case, it don't belong to me. Besides, I've already been through
+              too much shit this morning over this case to hand it over to your
+              dumb ass.</p>
+              <h3>Current Score</h3>
+              <p>X = 0 | O = 0</p>
+              <button class="btn btn-default" type="submit">Reset game</button>
+          </div>
+          <div class="col-md-3 box teal small" id="two">.two</div>
+          <div class="col-md-3 box teal small" id="one">.one</div>
+          <div class="col-md-3 box teal small" id="zero">.zero</div>
+          <div class="col-md-3 box teal small" id="five">.five</div>
+          <div class="col-md-3 box teal small" id="four">.four</div>
+          <div class="col-md-3 box teal small" id="three">.three</div>
+          <div class="col-md-3 box teal small" id="eight">.eight</div>
+          <div class="col-md-3 box teal small" id="seven">.seven</div>
+          <div class="col-md-3 box teal small" id="six">.six</div>
+        </div>
+      </div>
+
     </body>
 </html>
