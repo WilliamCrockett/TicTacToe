@@ -5,7 +5,7 @@ const store = require('../store.js')
 
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiOrigins.production + '/sign-up',
+    url: 'https://ga-wdi-boston.herokuapp.com' + '/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
