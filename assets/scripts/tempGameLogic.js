@@ -1,5 +1,10 @@
 'use strict'
 
+const ui = require('./game/ui.js')
+const events = require('./game/events.js')
+const api = require('./game/api.js')
+const store = require('./store.js')
+
 const game = {
   user: 'user_id',
   gameID: 0,
@@ -13,13 +18,15 @@ const game = {
 
 let currentPlayer = 'X'
 
-const gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8] // index represents a location on the gameboard. not sure I need it?
+// const gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8] // index represents a location on the gameboard. not sure I need it?
 
 const switchTurn = function (player) {
   if (player === 'X') {
     currentPlayer = 'O'
+    return currentPlayer
   } else if (player === 'O') {
     currentPlayer = 'X'
+    return currentPlayer
   }
 }
 
@@ -27,61 +34,78 @@ const switchTurn = function (player) {
 const checkSpace = function (boardPosition) {
   const location = parseInt(boardPosition)
   if (game.gameCells[location] !== '') {
-    console.log('Space has already been played, please select a different spot')
+    return true
   }
 }
 
-const playerXGo = function (boardPosition, callback) {
+const playerXGo = function (boardPosition) {
   const location = parseInt(boardPosition)
-  callback(boardPosition)
   game.gameCells[location] = 'X'
+  ui.placeX(boardPosition)
+  api.updateGame(boardPosition, 'X', false)
 }
 
-const playerOGo = function (boardPosition, callback) {
+const playerOGo = function (boardPosition) {
   const location = parseInt(boardPosition)
-  callback(boardPosition)
   game.gameCells[location] = 'O'
+  ui.placeO(boardPosition)
+  api.updateGame(boardPosition, 'Y', false)
 }
 
 const checkWinner = function (gameCells) {
   let count = 0
   //  logic to check if enough moves have been played
-  for (let i = 0; i > gameCells.legnth; i++) {
+  for (let i = 0; i < gameCells.length; i++) {
     if (gameCells[i] === 'X' || gameCells[i] === 'O') {
       count++
     }
   }
-  if (count < 4) {
-    console.log('not enough turns have been played to determine a winner')
-    return
+
+  if (count <= 4) {
+    return false
   }
 
   // logic to check if a winning combination is played swtich? nested if?
 
   if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[3] === gameCells[6]) {
-    console.log('1st if')
-    return gameCells[0] + ' is the winner'
+    events.winner = gameCells[0]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[1] !== '' && gameCells[1] === gameCells[4] && gameCells[4] === gameCells[7]) {
-    console.log('2nd if')
-    return gameCells[1] + ' is the winner'
+    events.winner = gameCells[1]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[2] !== '' && gameCells[2] === gameCells[5] && gameCells[5] === gameCells[8]) {
-    console.log('3rd if')
-    return gameCells[2] + ' is the winner'
+    events.winner = gameCells[2]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[0] !== '' && gameCells[0] === gameCells[1] && gameCells[1] === gameCells[2]) {
-    console.log('4th if')
-    return gameCells[0] + ' is the winner'
+    events.winner = gameCells[0]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[3] !== '' && gameCells[3] === gameCells[4] && gameCells[4] === gameCells[5]) {
-    console.log('5th if')
-    return gameCells[3] + ' is the winner'
+    events.winner = gameCells[3]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[6] !== '' && gameCells[6] === gameCells[7] && gameCells[7] === gameCells[8]) {
-    console.log('6th if')
-    return gameCells[6] + ' is the winner'
+    events.winner = gameCells[6]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[0] !== '' && gameCells[0] === gameCells[4] && gameCells[4] === gameCells[8]) {
-    console.log('7th if')
-    return gameCells[0] + ' is the winner'
+    events.winner = gameCells[0]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
+    return events.winner
   } else if (gameCells[2] !== '' && gameCells[2] === gameCells[4] && gameCells[4] === gameCells[6]) {
-    console.log('8th if')
-    return gameCells[2] + ' is the winner'
+    events.winner = gameCells[2]
+    api.finishGame('true')
+      .then(store.gameData.over = true)
   }
 }
 
@@ -90,8 +114,7 @@ module.exports = {
   playerOGo,
   checkSpace,
   switchTurn,
-  checkWinner
+  checkWinner,
+  currentPlayer,
+  game
 }
-
-// checkWinner(['X','X','X','O','O'])
-// checkWinner(['X','X','X','O'])

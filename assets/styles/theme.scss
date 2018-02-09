@@ -27,6 +27,14 @@ body {
   height: 250px;
 }
 
+#test {
+  visibility: hidden;
+}
+
+#instructionBoard {
+  visibility: hidden;
+}
+
 #signOut {
   visibility: hidden;
 }
@@ -37,6 +45,11 @@ body {
 
 #gameboard {
   visibility: hidden;
+}
+
+#test {
+  font-size: 200px;
+  text-align: center;
 }
 
 .navbar-header {

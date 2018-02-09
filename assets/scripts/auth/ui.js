@@ -21,7 +21,8 @@ const onSignInSuccess = function (data) {
   $('#signUpEvent').modal('show')
   $('#signUpTitle').text('Sign In Success')
   $('#signUpBody').text("You've sucessfully signed In. Enjoy playing!")
-  $('#gameboard').css('visibility', 'visible')
+  $('#instructionBoard').css('visibility', 'visible')
+  // $('#gameboard').css('visibility', 'visible')
   $('#signOut').css('visibility', 'visible')
   $('#change-password-button').css('visibility', 'visible')
   $('#sign-up-button').css('visibility', 'hidden')
@@ -58,6 +59,10 @@ const onSignOutSuccess = function () {
   $('#sign-up-button').css('visibility', 'visible')
   $('#sign-in-button').css('visibility', 'visible')
   $('#signOut').css('visibility', 'hidden')
+  $('#gameboard').css('visibility', 'hidden')
+  $('#change-password-button').css('visibility', 'hidden')
+  $('#sign-up-button').css('visibility', 'visible')
+  $('#sign-in-button').css('visibility', 'visible')
 }
 
 const onSignOutFailure = function () {
