@@ -22,14 +22,43 @@ body {
   height: 750px;
 }
 
+.big-right {
+  float: right;
+  height: 750px;
+}
+
 .small {
   float: right;
   height: 250px;
 }
 
+#cantPlay {
+  align-items: center;
+  // float: right;
+  z-index: 1;
+  position: absolute;
+  display: none;
+  text-align: center;
+}
+
+#gameError {
+  align-items: center;
+  // float: right;
+  z-index: 1;
+  position: absolute;
+  display: none;
+  text-align: center;
+}
+
 #test {
+  cursor: pointer;
+  // cursor: url('./x.png'), auto; //TODO
   visibility: hidden;
 }
+
+// #test:hover {
+//     cursor: url("./x.svg"), auto;
+// }
 
 #instructionBoard {
   visibility: hidden;
@@ -65,4 +94,14 @@ body {
 #signUpBody {
   color: black;
   text-decoration: bold;  //TODO fix the linter errors. need to ask how
+}
+
+#winOrDrawBody {
+  color: black;
+  text-decoration: bold;
+}
+
+#winOrDraw {
+  color: black;
+  text-decoration: bold;
 }

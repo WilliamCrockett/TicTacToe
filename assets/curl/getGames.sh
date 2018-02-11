@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-curl "http://tic-tac-toe.wdibos.com/games/" \
+curl "http://tic-tac-toe.wdibos.com/games?over=true" \
   --include \
   --request GET \
   --header "Content-Type: application/json" \

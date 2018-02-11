@@ -1,9 +1,9 @@
 'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields.js')
-const api = require('./api.js')
-const ui = require('./ui.js')
-const events = require('./events.js')
+// const getFormFields = require('../../../lib/get-form-fields.js')
+// const api = require('./api.js')
+// const ui = require('./ui.js')
+// const events = require('./events.js')
 const store = require('../store.js')
 
 let userX = 0
@@ -33,11 +33,11 @@ const showWinner = function (win) {
   $('#winOrDrawBody').text('Congratulations! User ' + win + ' has won the game!')
 }
 
-// const resetGame = function () {
-//   for (let i = 0; i < 9; i++) {
-//     $('#' + i).text('')
-//   }
-// }
+const isDraw = function () {
+  $('#winDraw').modal('show')
+  $('#winOrDraw').text('No winner')
+  $('#winOrDrawBody').text('This game is a draw... how about you play again?')
+}
 
 const newGame = function (data) {
   for (let i = 0; i < 9; i++) {
@@ -48,11 +48,31 @@ const newGame = function (data) {
   console.log(store.gameData)
 }
 
+const newGameError = function () {
+  $('#cantPlay').toggle() // update to new banner
+}
+
+const updateStats = function (wins) {
+  $('#previous-game-stats').text("You've won a total of " + wins + ' games in your career')
+}
+
+const spacePlayed = function () {
+  $('#cantPlay').toggle()
+}
+
+const dismissError = function () {
+  $('#cantPlay').toggle()
+}
+
 module.exports = {
   placeX,
   placeO,
   showWinner,
   incWinner,
-  //  resetGame,
-  newGame
+  newGame,
+  isDraw,
+  updateStats,
+  spacePlayed,
+  dismissError,
+  newGameError
 }

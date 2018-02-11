@@ -7,10 +7,6 @@ curl "http://tic-tac-toe.wdibos.com/games/+${ID}" \
   --header "Authorization: Token token=${TOKEN}"\
   --data '{
   "game": {
-    "cell": {
-      "index": 2,
-      "value": "x"
-    },
     "over": false
   }
 }'

@@ -58,11 +58,13 @@ const onSignOutSuccess = function () {
   $('#change-password-button').css('visibility', 'hidden')
   $('#sign-up-button').css('visibility', 'visible')
   $('#sign-in-button').css('visibility', 'visible')
-  $('#signOut').css('visibility', 'hidden')
+  $('#test').css('visibility', 'hidden')
+  $('#instructionBoard').css('visibility', 'hidden')
   $('#gameboard').css('visibility', 'hidden')
   $('#change-password-button').css('visibility', 'hidden')
   $('#sign-up-button').css('visibility', 'visible')
   $('#sign-in-button').css('visibility', 'visible')
+  $('#signOut').css('visibility', 'hidden')
 }
 
 const onSignOutFailure = function () {

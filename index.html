@@ -165,8 +165,22 @@
               <button class="btn btn-default" type="submit" id="startNewGame">Start New Game</button>
               <h3>Current Score</h3>
               <p>X =<span id="userX"> 0 </span> | O = <span id="userO">0</span></p>
-              <!-- <button class="btn btn-default" type="submit" id="resetGame">Reset game</button> -->
+              <h3>Game stats</h3>
+              <button class="btn btn-default" type="submit" id="getHistory">Get History</button>
+              <hr>
+              <p id="previous-game-stats"></p>
           </div>
+
+          <div class="alert alert-warning col-md-9" role="alert" id="cantPlay">
+            <button type="submit" id="closeAlert" class="close">close</button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+          </div>
+
+          <div class="alert alert-warning col-md-9" role="alert" id="gameError">
+            <button type="submit" id="closeAlert" class="close">close</button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+          </div>
+            <!-- <div class="alert alert-warning col-md-9" id="cantPlay" role="alert">Cannot play an already used square</div> -->
           <div id="test">
             <div class="col-md-3 box teal small" id="2"></div>
             <div class="col-md-3 box teal small" id="1"></div>
@@ -197,6 +211,7 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
       </div>
+
 
     </body>
 </html>

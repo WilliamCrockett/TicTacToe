@@ -44,12 +44,19 @@ const finishGame = function (over) {
     },
     data: {
       'game': {
-        'cell': {
-          'index': '',
-          'value': ''
-        },
         'over': over
       }
+    }
+  })
+}
+
+const getGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games?over=true',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -57,5 +64,6 @@ const finishGame = function (over) {
 module.exports = {
   initGame,
   updateGame,
-  finishGame
+  finishGame,
+  getGames
 }

@@ -37,21 +37,50 @@ const checkSpace = function (boardPosition) {
     return true
   }
 }
-
+// plays as user x
 const playerXGo = function (boardPosition) {
   const location = parseInt(boardPosition)
   game.gameCells[location] = 'X'
   ui.placeX(boardPosition)
   api.updateGame(boardPosition, 'X', false)
 }
-
+// plays as user O
 const playerOGo = function (boardPosition) {
   const location = parseInt(boardPosition)
   game.gameCells[location] = 'O'
   ui.placeO(boardPosition)
-  api.updateGame(boardPosition, 'Y', false)
+  api.updateGame(boardPosition, 'O', false)
 }
 
+const tempCheck = function (gameCells) {
+  if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[3] === gameCells[6]) {
+    events.winner = gameCells[0]
+    return events.winner
+  } else if (gameCells[1] !== '' && gameCells[1] === gameCells[4] && gameCells[4] === gameCells[7]) {
+    events.winner = gameCells[1]
+    return events.winner
+  } else if (gameCells[2] !== '' && gameCells[2] === gameCells[5] && gameCells[5] === gameCells[8]) {
+    events.winner = gameCells[2]
+    return events.winner
+  } else if (gameCells[0] !== '' && gameCells[0] === gameCells[1] && gameCells[1] === gameCells[2]) {
+    events.winner = gameCells[0]
+    return events.winner
+  } else if (gameCells[3] !== '' && gameCells[3] === gameCells[4] && gameCells[4] === gameCells[5]) {
+    events.winner = gameCells[3]
+    return events.winner
+  } else if (gameCells[6] !== '' && gameCells[6] === gameCells[7] && gameCells[7] === gameCells[8]) {
+    events.winner = gameCells[6]
+    return events.winner
+  } else if (gameCells[0] !== '' && gameCells[0] === gameCells[4] && gameCells[4] === gameCells[8]) {
+    events.winner = gameCells[0]
+    return events.winner
+  } else if (gameCells[2] !== '' && gameCells[2] === gameCells[4] && gameCells[4] === gameCells[6]) {
+    events.winner = gameCells[2]
+    return events.winner
+  }
+}
+
+// check if we have a winner
 const checkWinner = function (gameCells) {
   let count = 0
   //  logic to check if enough moves have been played
@@ -65,7 +94,7 @@ const checkWinner = function (gameCells) {
     return false
   }
 
-  // logic to check if a winning combination is played swtich? nested if?
+  // logic to check if a winning combination is played
 
   if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[3] === gameCells[6]) {
     events.winner = gameCells[0]
@@ -106,6 +135,12 @@ const checkWinner = function (gameCells) {
     events.winner = gameCells[2]
     api.finishGame('true')
       .then(store.gameData.over = true)
+    return events.winner
+  }
+  if (count === 9) {
+    ui.isDraw()
+    api.finishGame('true')
+      .then(store.gameData.over = true)
   }
 }
 
@@ -116,5 +151,6 @@ module.exports = {
   switchTurn,
   checkWinner,
   currentPlayer,
-  game
+  game,
+  tempCheck
 }
