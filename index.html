@@ -89,11 +89,11 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
+                      <!-- <div class="checkbox">
                         <label>
                           <input type="checkbox"> Remember me
                         </label>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="col-sm-offset-2 col-sm-10">
@@ -148,8 +148,8 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+          </div>
+        </div>
       </div>
       <!-- gameboard -->
       <div class="container" id="instructionBoard">
@@ -180,6 +180,12 @@
             <button type="submit" id="closeAlert" class="close">close</button>
             <strong>Warning!</strong> Better check yourself, you're not looking too good.
           </div>
+
+          <div class="alert alert-danger col-md-9" role="alert" id="gameOverAlert">
+            <button type="submit" id="closeError" class="close">close</button>
+            <strong>Warning!</strong> The game is over. You need to start a new game to continue playing!
+          </div>
+
             <!-- <div class="alert alert-warning col-md-9" id="cantPlay" role="alert">Cannot play an already used square</div> -->
           <div id="test">
             <div class="col-md-3 box teal small" id="2"></div>
@@ -208,8 +214,8 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal" id="resetFromWinner">Close</button>
             </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+          </div>
+        </div>
       </div>
 
 

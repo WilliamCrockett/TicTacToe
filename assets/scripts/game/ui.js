@@ -60,8 +60,16 @@ const spacePlayed = function () {
   $('#cantPlay').toggle()
 }
 
-const dismissError = function () {
+const dismissAlert = function () {
   $('#cantPlay').toggle()
+}
+
+const dismissError = function () {
+  $('#gameOverAlert').toggle()
+}
+
+const gameOver = function () {
+  $('#gameOverAlert').toggle()
 }
 
 module.exports = {
@@ -74,5 +82,7 @@ module.exports = {
   updateStats,
   spacePlayed,
   dismissError,
-  newGameError
+  newGameError,
+  gameOver,
+  dismissAlert
 }

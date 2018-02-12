@@ -50,15 +50,20 @@ body {
   text-align: center;
 }
 
-#test {
-  cursor: pointer;
-  // cursor: url('./x.png'), auto; //TODO
-  visibility: hidden;
+#gameOverAlert {
+  align-items: center;
+  // float: right;
+  z-index: 1;
+  position: absolute;
+  display: none;
+  text-align: center;
 }
 
-// #test:hover {
-//     cursor: url("./x.svg"), auto;
-// }
+#test {
+  cursor: pointer;
+  // cursor: url('./x.png'), progress; //TODO
+  visibility: hidden;
+}
 
 #instructionBoard {
   visibility: hidden;
@@ -70,6 +75,7 @@ body {
 
 #change-password-button {
   visibility: hidden;
+  align-items: right;
 }
 
 #gameboard {

@@ -21,10 +21,6 @@ const getData = function (data) {
   numWins = 0
   gameCollection = data.games
   console.log(gameCollection)
-  // console.log(gameCollection[0].cells)
-  // console.log(gameCollection[0].cells.length)
-  // console.log(store.games)
-  // console.log(store.games.cells)
   generateStats()
   ui.updateStats(numWins)
   console.log("you've won a total of " + numWins + ' games in your career!')
@@ -50,7 +46,6 @@ const onBlockSelect = function () {
   if (store.gameData.over === false) {
     if (logic.checkSpace(targetID) === true) {
       ui.spacePlayed()
-      // alert("can't play that space, it's already been played!") // TODO fix this
       return
     }
     if (logic.currentPlayer === 'X') {
@@ -75,6 +70,8 @@ const onBlockSelect = function () {
       ui.showWinner('O')
       ui.incWinner('O')
     }
+  } else {
+    ui.gameOver()
   }
 }
 
@@ -86,6 +83,10 @@ const onStartNewGame = function () {
     .catch(ui.newGameError) //  TODO Update this to real error message
 }
 
+const onDismissAlert = function () {
+  ui.dismissAlert()
+}
+
 const onDismissError = function () {
   ui.dismissError()
 }
@@ -95,7 +96,8 @@ const addHandlers = () => {
   $('#test').click(onBlockSelect)
   $('#startNewGame').click(onStartNewGame)
   $('#getHistory').click(getCompletedGames)
-  $('#closeAlert').click(onDismissError)
+  $('#closeAlert').click(onDismissAlert)
+  $('#closeError').click(onDismissError)
 }
 
 module.exports = {
