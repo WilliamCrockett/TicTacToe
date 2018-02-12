@@ -13,6 +13,12 @@ let gameCollection
 
 let numWins = 0
 
+let numGamesPlayed = 0
+
+let numGamesFinsihed = 0
+
+let completionPercentage = 0
+
 const clickedID = function (event) {
   targetID = (event.target.id)
 }
@@ -23,7 +29,19 @@ const getData = function (data) {
   console.log(gameCollection)
   generateStats()
   ui.updateStats(numWins)
-  console.log("you've won a total of " + numWins + ' games in your career!')
+  // ui.updateStatsComplete(completionPercentage)
+}
+
+const getTotalGames = function (data) {
+  numGamesPlayed = 0
+  numGamesFinsihed = 0
+  console.log(data)
+  gameCollection = data.games
+  console.log(gameCollection)
+  console.log('gamecells')
+  generateNumGames()
+  debugger
+  ui.updateStatsComplete(completionPercentage)
 }
 
 const generateStats = function () {
@@ -37,9 +55,31 @@ const generateStats = function () {
   return numWins
 }
 
+const generateNumGames = function () {
+  console.log('here')
+  for (let i = 0; i < gameCollection.length; i++) {
+    numGamesPlayed++
+    if (gameCollection[i].over === true) {
+      numGamesFinsihed++
+    }
+  }
+  console.log(numGamesPlayed + ' Num games played')
+  console.log(numGamesFinsihed + ' finished')
+  completionPercentage = Math.round((numGamesFinsihed / numGamesPlayed) * 100)
+  console.log(completionPercentage)
+  return completionPercentage
+}
+
 const getCompletedGames = function () {
   api.getGames()
     .then(getData)
+
+  getAllGames()
+}
+
+const getAllGames = function () {
+  api.getAllGames()
+    .then(getTotalGames)
 }
 
 const onBlockSelect = function () {
@@ -108,5 +148,6 @@ module.exports = {
   onStartNewGame,
   gameCollection,
   getCompletedGames,
-  generateStats
+  generateStats,
+  generateNumGames
 }

@@ -56,6 +56,11 @@ const updateStats = function (wins) {
   $('#previous-game-stats').text("You've won a total of " + wins + ' games in your career')
 }
 
+const updateStatsComplete = function (completeGames) {
+  $('#hor-rule').toggle()
+  $('#all-game-stats').text("You've completed " + completeGames + '% of games started')
+}
+
 const spacePlayed = function () {
   $('#cantPlay').toggle()
 }
@@ -84,5 +89,6 @@ module.exports = {
   dismissError,
   newGameError,
   gameOver,
-  dismissAlert
+  dismissAlert,
+  updateStatsComplete
 }

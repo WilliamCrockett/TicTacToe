@@ -61,9 +61,21 @@ const getGames = function () {
   })
 }
 
+const getAllGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   initGame,
   updateGame,
   finishGame,
-  getGames
+  getGames,
+  getAllGames
 }
