@@ -25,10 +25,10 @@
               <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInModal" id="sign-in-button">
                 Sign In
               </button>
-              <button type="button" class="btn btn-default navbar-btn alignRight" data-toggle="modal" data-target="#changePasswordModal" id="change-password-button">
+              <button type="button" class="btn btn-default navbar-btn alignRight change-password-button" data-toggle="modal" data-target="#changePasswordModal" id="change-password-button">
                 Change Password
               </button>
-              <button type="submit" class="btn btn-default navbar-btn alignRight" id="signOut" >
+              <button type="submit" class="btn btn-default navbar-btn alignRight sign-out" id="signOut" >
                 Sign Out
               </button>
           </div>
@@ -140,9 +140,9 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="signUpTitle"></h4>
+              <h4 class="modal-title sign-up-title" id="signUpTitle"></h4>
             </div>
-            <div class="modal-body" id="signUpBody">
+            <div class="modal-body sign-up-body" id="signUpBody">
               <p></p>
             </div>
             <div class="modal-footer">
@@ -152,7 +152,7 @@
         </div>
       </div>
       <!-- gameboard -->
-      <div class="container" id="instructionBoard">
+      <div class="container instruction-board" id="instructionBoard">
         <div class="row">
           <div class="col-md-2 box teal big">
             <h3>Instructions</h3>
@@ -170,27 +170,27 @@
               <button class="btn btn-default" type="submit" id="getHistory">Get History</button>
               <hr>
               <p id="previous-game-stats"></p>
-              <hr id="hor-rule">
+              <hr class="hor-rule" id="hor-rule">
               <p id="all-game-stats"></p>
           </div>
 
-          <div class="alert alert-warning col-md-9" role="alert" id="cantPlay">
+          <div class="alert alert-warning col-md-9 cant-play" role="alert" id="cantPlay">
             <button type="submit" id="closeAlert" class="close">close</button>
             <strong>Warning!</strong> Better check yourself, you're not looking too good.
           </div>
 
-          <div class="alert alert-warning col-md-9" role="alert" id="gameError">
+          <div class="alert alert-warning col-md-9 game-error" role="alert" id="gameError">
             <button type="submit" id="closeAlert" class="close">close</button>
             <strong>Warning!</strong> Better check yourself, you're not looking too good.
           </div>
 
-          <div class="alert alert-danger col-md-9" role="alert" id="gameOverAlert">
+          <div class="alert alert-danger col-md-9 game-over-alert" role="alert" id="gameOverAlert">
             <button type="submit" id="closeError" class="close">close</button>
             <strong>Warning!</strong> The game is over. You need to start a new game to continue playing!
           </div>
 
-            <!-- <div class="alert alert-warning col-md-9" id="cantPlay" role="alert">Cannot play an already used square</div> -->
-          <div id="test">
+            <!-- actual game board  -->
+          <div class="test" id="test">
             <div class="col-md-3 box teal small" id="2"></div>
             <div class="col-md-3 box teal small" id="1"></div>
             <div class="col-md-3 box teal small" id="0"></div>
@@ -209,9 +209,9 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="winOrDraw"></h4>
+              <h4 class="modal-title win-or-draw" id="winOrDraw"></h4>
             </div>
-            <div class="modal-body" id="winOrDrawBody">
+            <div class="modal-body win-or-draw-body" id="winOrDrawBody">
               <p></p>
             </div>
             <div class="modal-footer">

@@ -44,85 +44,82 @@ h2 {
 }
 
 
-#hor-rule {
+.hor-rule {
   display: none;
 }
 
-#cantPlay {
+.cant-play {
   align-items: center;
   // float: right;
-  z-index: 1;
-  position: absolute;
   display: none;
+  position: absolute;
   text-align: center;
+  z-index: 1;
 }
 
-#gameError {
+.game-error {
   align-items: center;
   // float: right;
-  z-index: 1;
-  position: absolute;
   display: none;
+  position: absolute;
   text-align: center;
+  z-index: 1;
 }
 
-#gameOverAlert {
+.game-over-alert {
   align-items: center;
   // float: right;
-  z-index: 1;
-  position: absolute;
   display: none;
+  position: absolute;
   text-align: center;
+  z-index: 1;
 }
 
-#test {
+.test {
   cursor: pointer;
-  visibility: hidden;
-}
-
-#instructionBoard {
-  visibility: hidden;
-}
-
-#signOut {
-  visibility: hidden;
-}
-
-#change-password-button {
-  visibility: hidden;
-  align-items: right;
-}
-
-#gameboard {
-  visibility: hidden;
-}
-
-#test {
   font-size: 200px;
   text-align: center;
+  visibility: hidden;
 }
+
+.instruction-board {
+  visibility: hidden;
+}
+
+.sign-out {
+  visibility: hidden;
+}
+
+.change-password-button {
+  align-items: right;
+  visibility: hidden;
+}
+
+// #gameboard {
+//   visibility: hidden;
+// }
 
 .navbar-header {
-  color: black;
+  color: $black;
   text-decoration: bold;
 }
 
-#signUpTitle {
-  color: black;
+.sign-up-title {
+  color: $black;
   text-decoration: bold;
 }
 
-#signUpBody {
-  color: black;
+.sign-up-body {
+  color: $black;
   text-decoration: bold;  //TODO fix the linter errors. need to ask how
 }
 
-#winOrDrawBody {
-  color: black;
+.win-or-draw-body {
+  color: $black;
   text-decoration: bold;
 }
 
-#winOrDraw {
-  color: black;
+.win-or-draw {
+  color: $black;
   text-decoration: bold;
 }
