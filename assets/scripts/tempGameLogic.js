@@ -23,9 +23,11 @@ let currentPlayer = 'X'
 const switchTurn = function (player) {
   if (player === 'X') {
     currentPlayer = 'O'
+    $('#currentUser').text('Player O')
     return currentPlayer
   } else if (player === 'O') {
     currentPlayer = 'X'
+    $('#currentUser').text('Player X')
     return currentPlayer
   }
 }

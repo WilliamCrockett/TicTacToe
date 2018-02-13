@@ -23,10 +23,12 @@ const incWinner = function (winningUser) {
 
 const placeX = function (targetID) {
   $('#' + targetID).text('X')
+  $('#' + targetID).css('cursor', 'not-allowed')
 }
 
 const placeO = function (targetID) {
   $('#' + targetID).text('O')
+  $('#' + targetID).css('cursor', 'not-allowed')
 }
 
 const showWinner = function (win, combo) {
@@ -48,8 +50,11 @@ const newGame = function (data) {
   for (let i = 0; i < 9; i++) {
     $('#' + i).text('')
     $('#' + i).css('background-color', 'rgb(0, 156, 161)')
+    $('#' + i).css('cursor', 'pointer')
   }
   $('#test').css('visibility', 'visible')
+  $('#currentPlayer').css('visibility', 'visible')
+  $('#currentUser').text('Player X')
   store.gameData = data.game
 }
 

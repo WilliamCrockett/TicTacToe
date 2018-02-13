@@ -29,6 +29,8 @@ and the saving of indiviudal games to a database.
 
 ## Future release roadmap:
 
+* Cleaner UI to indicate who current user is
+* Better stats and information around stats
 * Multiplayer from seperate devices
 * Custom player tokens
 * In-game chat with other players

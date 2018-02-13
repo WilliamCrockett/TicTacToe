@@ -65,6 +65,7 @@ const onSignOutSuccess = function () {
   $('#sign-up-button').css('visibility', 'visible')
   $('#sign-in-button').css('visibility', 'visible')
   $('#signOut').css('visibility', 'hidden')
+  $('#currentPlayer').css('visibility', 'hidden')
 }
 
 const onSignOutFailure = function () {
