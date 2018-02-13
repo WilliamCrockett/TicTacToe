@@ -29,10 +29,6 @@ const placeO = function (targetID) {
 }
 
 const showWinner = function (win) {
-  console.log(logic.winningCombo)
-  for (let i = 0; i < 3; i++) {
-    $('#' + logic.winningCombo[i]).css('background-color', 'red')
-  }
   $('#winDraw').modal('show')
   $('#winOrDraw').text('We have a winner!')
   $('#winOrDrawBody').text('Congratulations! User ' + win + ' has won the game!')
