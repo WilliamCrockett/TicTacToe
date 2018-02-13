@@ -40,7 +40,6 @@ const getTotalGames = function (data) {
   console.log(gameCollection)
   console.log('gamecells')
   generateNumGames()
-  debugger
   ui.updateStatsComplete(completionPercentage)
 }
 
@@ -99,7 +98,6 @@ const onBlockSelect = function () {
     if (winner === false) {
       return 'no Winner'
     }
-    console.log(winner)
 
     if (winner === 'X') {
       ui.showWinner('X')

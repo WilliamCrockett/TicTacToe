@@ -5,6 +5,8 @@ const events = require('./game/events.js')
 const api = require('./game/api.js')
 const store = require('./store.js')
 
+let winningCombo
+
 const game = {
   user: 'user_id',
   gameID: 0,
@@ -95,8 +97,9 @@ const checkWinner = function (gameCells) {
   }
 
   // logic to check if a winning combination is played
-
   if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[3] === gameCells[6]) {
+    winningCombo = [0, 3, 6]
+    console.log(winningCombo)
     events.winner = gameCells[0]
     api.finishGame('true')
       .then(store.gameData.over = true)
@@ -137,6 +140,8 @@ const checkWinner = function (gameCells) {
       .then(store.gameData.over = true)
     return events.winner
   }
+  console.log('here..')
+  console.log(winningCombo + ' here')
   if (count === 9) {
     ui.isDraw()
     api.finishGame('true')
@@ -152,5 +157,6 @@ module.exports = {
   checkWinner,
   currentPlayer,
   game,
-  tempCheck
+  tempCheck,
+  winningCombo
 }

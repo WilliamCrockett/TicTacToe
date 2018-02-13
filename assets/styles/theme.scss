@@ -4,6 +4,17 @@ body {
   background-color: $background-color;
   color: $font-color;
 }
+//
+// footer {
+// position: fixed;
+// left: 0px;
+// bottom: 0px;
+// width: 100%;
+// }
+
+h2 {
+  text-align: center;
+}
 
 .box {
   border: 1px solid $white;
@@ -31,6 +42,7 @@ body {
   float: right;
   height: 250px;
 }
+
 
 #hor-rule {
   display: none;
@@ -65,7 +77,6 @@ body {
 
 #test {
   cursor: pointer;
-  // cursor: url('./x.png'), progress; //TODO
   visibility: hidden;
 }
 
