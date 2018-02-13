@@ -9,6 +9,7 @@ const logic = require('../tempGameLogic')
 
 let userX = 0
 let userO = 0
+let winningCombo
 
 const incWinner = function (winningUser) {
   if (winningUser === 'X') {
@@ -28,10 +29,9 @@ const placeO = function (targetID) {
   $('#' + targetID).text('O')
 }
 
-const showWinner = function (win) {
-  console.log(logic.winningCombo)
+const showWinner = function (win, combo) {
   for (let i = 0; i < 3; i++) {
-    $('#' + logic.winningCombo[i]).css('background-color', 'red')
+    $('#' + combo[i]).css('background-color', 'red')
   }
   $('#winDraw').modal('show')
   $('#winOrDraw').text('We have a winner!')
@@ -47,10 +47,10 @@ const isDraw = function () {
 const newGame = function (data) {
   for (let i = 0; i < 9; i++) {
     $('#' + i).text('')
+    $('#' + i).css('background-color', 'rgb(0, 156, 161)')
   }
   $('#test').css('visibility', 'visible')
   store.gameData = data.game
-  console.log(store.gameData)
 }
 
 const newGameError = function () {
@@ -95,5 +95,6 @@ module.exports = {
   newGameError,
   gameOver,
   dismissAlert,
-  updateStatsComplete
+  updateStatsComplete,
+  winningCombo
 }

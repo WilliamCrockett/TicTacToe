@@ -95,17 +95,19 @@ const onBlockSelect = function () {
     logic.currentPlayer = logic.switchTurn(logic.currentPlayer)
     winner = (logic.checkWinner(logic.game.gameCells))
 
+    console.log(ui.winningCombo + ' in on block select')
+
     if (winner === false) {
       return 'no Winner'
     }
 
     if (winner === 'X') {
-      ui.showWinner('X')
+      ui.showWinner('X', ui.winningCombo)
       ui.incWinner('X')
     }
 
     if (winner === 'O') {
-      ui.showWinner('O')
+      ui.showWinner('O', ui.winningCombo)
       ui.incWinner('O')
     }
   } else {
