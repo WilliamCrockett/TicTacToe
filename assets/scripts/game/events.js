@@ -26,7 +26,6 @@ const clickedID = function (event) {
 const getData = function (data) {
   numWins = 0
   gameCollection = data.games
-  console.log(gameCollection)
   generateStats()
   ui.updateStats(numWins)
   // ui.updateStatsComplete(completionPercentage)
@@ -35,17 +34,12 @@ const getData = function (data) {
 const getTotalGames = function (data) {
   numGamesPlayed = 0
   numGamesFinsihed = 0
-  console.log(data)
   gameCollection = data.games
-  console.log(gameCollection)
-  console.log('gamecells')
   generateNumGames()
   ui.updateStatsComplete(completionPercentage)
 }
 
 const generateStats = function () {
-  console.log(gameCollection.length)
-  console.log(gameCollection)
   for (let i = 0; i < gameCollection.length; i++) {
     if (logic.tempCheck(gameCollection[i].cells) === 'X') {
       numWins++
@@ -55,17 +49,13 @@ const generateStats = function () {
 }
 
 const generateNumGames = function () {
-  console.log('here')
   for (let i = 0; i < gameCollection.length; i++) {
     numGamesPlayed++
     if (gameCollection[i].over === true) {
       numGamesFinsihed++
     }
   }
-  console.log(numGamesPlayed + ' Num games played')
-  console.log(numGamesFinsihed + ' finished')
   completionPercentage = Math.round((numGamesFinsihed / numGamesPlayed) * 100)
-  console.log(completionPercentage)
   return completionPercentage
 }
 
@@ -94,8 +84,6 @@ const onBlockSelect = function () {
     }
     logic.currentPlayer = logic.switchTurn(logic.currentPlayer)
     winner = (logic.checkWinner(logic.game.gameCells))
-
-    console.log(ui.winningCombo + ' in on block select')
 
     if (winner === false) {
       return 'no Winner'
