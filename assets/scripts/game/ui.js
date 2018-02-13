@@ -5,7 +5,7 @@
 // const ui = require('./ui.js')
 // const events = require('./events.js')
 const store = require('../store.js')
-const logic = require('../tempGameLogic')
+// const logic = require('../tempGameLogic')
 
 let userX = 0
 let userO = 0
