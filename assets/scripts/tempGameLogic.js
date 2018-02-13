@@ -96,10 +96,7 @@ const checkWinner = function (gameCells) {
 
   // logic to check if a winning combination is played
   if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[3] === gameCells[6]) {
-<<<<<<< HEAD
-=======
     ui.winningCombo = [0, 3, 6]
->>>>>>> uiUpdate
     events.winner = gameCells[0]
     api.finishGame('true')
       .then(store.gameData.over = true)
