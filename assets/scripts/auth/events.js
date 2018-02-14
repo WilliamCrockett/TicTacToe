@@ -35,7 +35,22 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
+const clearFields = function (event) {
+  console.log('here')
+  event.preventDefault()
+  $('#signInEmail').val('')
+  $('#signInPassword').val('')
+  $('#signUpEmail').val('')
+  $('#signUpPassword').val('')
+  $('#signUpPasswordConf').val('')
+  $('#changePasswordOld').val('')
+  $('#changePasswordNew').val('')
+}
+
 const addHandlers = () => {
+  $('#sign-up-button').on('click', clearFields)
+  $('#change-password-button').on('click', clearFields)
+  $('#sign-in-button').on('click', clearFields)
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)
   $('#changePassword').on('submit', onChangePassword)

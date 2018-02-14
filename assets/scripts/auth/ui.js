@@ -66,6 +66,13 @@ const onSignOutSuccess = function () {
   $('#sign-in-button').css('visibility', 'visible')
   $('#signOut').css('visibility', 'hidden')
   $('#currentPlayer').css('visibility', 'hidden')
+  $('#signUpEmail').text('')
+  $('#signUpPassword').text('')
+  $('#signInEmail').val('')
+  $('#signInPassword').text('')
+  $('#hor-rule').toggle()
+  $('#previous-game-stats').text('')
+  $('#all-game-stats').text('')
 }
 
 const onSignOutFailure = function () {
