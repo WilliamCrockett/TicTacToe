@@ -9,6 +9,7 @@ ___
 
 * HTML
 * CSS/SASS
+* Bootstrap
 * Javascript
 * Ajax for API requests
 * Jquery for DOM manipulation
