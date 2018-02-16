@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TicTacToe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <!-- body -->
+    <body class="container-fluid">
+      <!--Nav bar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h1>Welcome to Tic Tac Toe</h1>
+            <!-- Button trigger modal -->
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signUpModal" id="sign-up-button">
+                Sign Up
+              </button>
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInModal" id="sign-in-button">
+                Sign In
+              </button>
+              <button type="button" class="btn btn-default navbar-btn alignRight change-password-button" data-toggle="modal" data-target="#changePasswordModal" id="change-password-button">
+                Change Password
+              </button>
+              <button type="submit" class="btn btn-default navbar-btn alignRight sign-out" id="signOut" >
+                Sign Out
+              </button>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal sign up -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal" id="signUp">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" name="credentials[email]" class="form-control" id="signUpEmail" placeholder="Email">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="credentials[password]" class="form-control" id="signUpPassword" placeholder="Password">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Confirm Password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="credentials[password_confirmation]" class="form-control" id="signUpPasswordConf" placeholder="Password">
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal sign in -->
+      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal" id="signIn">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" name="credentials[email]" class="form-control" id="signInEmail" placeholder="Email">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="credentials[password]" class="form-control" id="signInPassword" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <!-- <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Remember me
+                        </label>
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign In</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal change password -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <!--  Modal form -->
+              <form class="form-horizontal" id="changePassword">
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Old password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="passwords[old]" class="form-control" id="changePasswordOld" placeholder="old password">
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">New password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="passwords[new]" class="form-control" id="changePasswordNew" placeholder="new password">
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Change Password</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal sign up success/failure -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="signUpEvent">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title sign-up-title" id="signUpTitle"></h4>
+            </div>
+            <div class="modal-body sign-up-body" id="signUpBody">
+              <p></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- gameboard -->
+      <div class="container instruction-board" id="instructionBoard">
+        <div class="row">
+          <div class="col-md-2 box teal big">
+            <h3>Instructions</h3>
+              <ul>
+                <li>Click <strong>'Start new Game'</strong> to begin</li>
+                <li>X always plays first</li>
+                <li>The signed in user is X</li>
+                <li>Click <strong>'Get History'</strong> to see some stats about your game play</li>
+              </ul>
+              <hr>
+              <button class="btn btn-default" type="submit" id="startNewGame">Start New Game</button>
+              <h3>Current Score</h3>
+              <p>X =<span id="userX"> 0 </span> | O = <span id="userO">0</span></p>
+              <h3 class="current-player" id="currentPlayer">Current Player</h3>
+              <p id="currentUser"></p>
+              <h3>Game stats</h3>
+              <button class="btn btn-default" type="submit" id="getHistory">Get History</button>
+              <hr>
+              <p id="previous-game-stats"></p>
+              <hr class="hor-rule" id="hor-rule">
+              <p id="all-game-stats"></p>
+          </div>
+
+          <div class="alert alert-warning col-md-9 cant-play" role="alert" id="cantPlay">
+            <button type="submit" id="closeAlert" class="close">close</button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+          </div>
+
+          <div class="alert alert-warning col-md-9 game-error" role="alert" id="gameError">
+            <button type="submit" id="closeAlert" class="close">close</button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+          </div>
+
+          <div class="alert alert-warning col-md-9 game-over-alert" role="alert" id="gameOverAlert">
+            <button type="submit" id="closeError" class="close">close</button>
+            <strong>Warning!</strong> The game is over. You need to start a new game to continue playing!
+          </div>
+
+            <!-- actual game board  -->
+          <div class="test" id="test">
+            <div class="col-md-3 box teal small" id="2"></div>
+            <div class="col-md-3 box teal small" id="1"></div>
+            <div class="col-md-3 box teal small" id="0"></div>
+            <div class="col-md-3 box teal small" id="5"></div>
+            <div class="col-md-3 box teal small" id="4"></div>
+            <div class="col-md-3 box teal small" id="3"></div>
+            <div class="col-md-3 box teal small" id="8"></div>
+            <div class="col-md-3 box teal small" id="7"></div>
+            <div class="col-md-3 box teal small" id="6"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal we have a winner/draw -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="winDraw">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title win-or-draw" id="winOrDraw"></h4>
+            </div>
+            <div class="modal-body win-or-draw-body" id="winOrDrawBody">
+              <p></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="resetFromWinner">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <hr>
+        <h2>Built by <a target="_blank" href='https://github.com/WilliamCrockett'>me</a>, with help from <a target="_blank" href='https://twitter.com/GA_boston'>them</a>  </h2>
+      </footer>
+
+
+    </body>
+</html>
