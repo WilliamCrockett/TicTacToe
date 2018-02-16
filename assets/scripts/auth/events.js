@@ -36,7 +36,6 @@ const onSignOut = function (event) {
 }
 
 const clearFields = function (event) {
-  console.log('here')
   event.preventDefault()
   $('#signInEmail').val('')
   $('#signInPassword').val('')
